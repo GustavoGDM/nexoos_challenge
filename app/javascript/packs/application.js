@@ -10,7 +10,7 @@ require("channels")
 require("bootstrap")
 
 // LOAN
-require("packs/loan")
+require("packs/loan/new")
 
 
 

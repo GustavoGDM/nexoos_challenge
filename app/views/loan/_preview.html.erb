@@ -1,0 +1,39 @@
+<div class="loan-preview">
+  <div class="card">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="loan-registration-nav" data-toggle="list" href="#loan-registration-prev" role="tab" aria-controls="home">Cadastro de solicitação de crédito</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <%= 'disabled' if controller_name == 'loan' %>" id="loan-applicant-nav" data-toggle="list" href="#loan-applicant-prev" role="tab" aria-controls="profile">Cadastro de solicitante</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="loan-registration-prev" role="tabpanel" aria-labelledby="loan-registration-nav">
+          <div>
+            <span>Valor solicitado </span> 
+            <p>R$<span id="value-prev" class="ml-2">00</span></p>
+          </div>
+          <div>
+            <span>Numero de parcelas </span> 
+            <p><span id="installments-prev"> 00 </span></p>
+          </div>
+          <div>
+            <span>Taxa <small> %a.m.</small> </span> 
+            <p><span id="installments-prev"> <%= "#{@loan.monthly_rate*100}"%>% </span></p>
+          </div>
+          <div>
+            <span>Valor parcelado mensal </span> 
+            <p>R$<span id="installments-monthly" class="ml-2">00</span></p>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="loan-applicant-prev" role="tabpanel" aria-labelledby="loan-applicant-nav">
+        <!-- preview de solicitante -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
