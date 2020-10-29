@@ -1,5 +1,6 @@
 class Loan < ApplicationRecord
   validates :amount, :installments, :monthly_rate, :date_acquisition, numericality: { greater_than: 0} , presence: true
+  validates :accept_terms, acceptance: true, presence: true
   after_initialize :set_default
   
   private

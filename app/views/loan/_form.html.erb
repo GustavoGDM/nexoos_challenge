@@ -16,11 +16,11 @@
     </div>
     <div class="form-group">
       <label for="">Taxa</label>
-      <%= f.select :installments,(1..60).map{|n| n},{}, {class:"custom-select"}%>
+      <%= f.select :installments,(1..60).map{|n| n}, {}, {class:"custom-select"}%>
     </div>
-    <div class="form-check pb-2">
-      <input class="form-check-input" type="checkbox"  id="confirm">
-      <label class="form-check-label" for="confirm">
+    <div class="form-group">
+      <%= f.check_box :accept_terms, {}, {class:"form-check-input"}%>
+      <label class="form-check-label" for="accept_terms">
         Aceito os termos da solicitação de credito
       </label>
     </div>
