@@ -5,6 +5,6 @@ class Loan < ApplicationRecord
   private
   
   def set_default
-    self.monthly_rate = 1.5
+    self.monthly_rate = 0.015
   end
 end
