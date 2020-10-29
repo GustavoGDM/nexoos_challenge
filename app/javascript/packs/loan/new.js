@@ -3,8 +3,11 @@ $(function(){
     loan_calculation($(this).val(),$('#monthly_rate').val(),$('#installments').val())
     if (parseFloat($(this).val())){
       $('#value-prev').text(parseFloat($(this).val()))
-      enable_next_step()
+    }else{
+      $(this).val('')
+      $('#value-prev').text('00')
     }
+    enable_next_step()
   })
   $('#installments').on('change',function() {
     loan_calculation($('#value').val(),$('#monthly_rate').val(),$(this).val())
@@ -26,7 +29,7 @@ function loan_calculation(value,monthly_rate,installments){
 
 function enable_next_step(){
   console.log('chamei a função')
-  if($( "#confirm" ).prop('checked') && parseFloat($('#value').val())){
+  if($( "#confirm" ).prop('checked') && parseFloat($('#value').val()) > 0 ){
     $(".loan-form form input[type='submit']").prop('disabled',false)
   }else{
     $(".loan-form form input[type='submit']").prop('disabled',true)
