@@ -7,31 +7,31 @@ RSpec.describe Loan, type: :model do
   end
 
   it 'Is invalid without amount' do
-    loan = build(:loan,amount: nil)
+    loan = build(:loan, amount: nil)
     loan.valid?
     expect(loan.errors[:amount]).to include("can't be blank")
   end
   
   it 'Is invalid without installments' do
-    loan = build(:loan,installments: nil)
+    loan = build(:loan, installments: nil)
     loan.valid?
     expect(loan.errors[:installments]).to include("can't be blank")
   end
   
   it 'Is invalid without date_acquisition' do
-    loan = build(:loan,date_acquisition: nil)
+    loan = build(:loan, date_acquisition: nil)
     loan.valid?
     expect(loan.errors[:date_acquisition]).to include("can't be blank")
   end
 
   it 'Is invalid without accept_terms' do
-    loan = build(:loan,accept_terms: nil)
+    loan = build(:loan, accept_terms: nil)
     loan.valid?
     expect(loan.errors[:accept_terms]).to include("can't be blank")
   end
 
   it 'Is invalid with accept_terms false' do
-    loan = build(:loan,accept_terms: false)
+    loan = build(:loan, accept_terms: false)
     loan.valid?
     expect(loan.errors[:accept_terms]).to include("must be accepted")
   end
