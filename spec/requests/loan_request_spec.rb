@@ -11,7 +11,7 @@ RSpec.describe "Loans", type: :request do
 
   describe "GET /new" do
     it "return http error" do
-      get "/loan/new"
+      get "/loans/new"
       expect(response).to have_http_status(302)
     end
   end

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   get 'painel/index'
   get 'home/index'
-  resources :loan, only: [:new,]
+  resources :loans, only: [:new,]
   resources :loan_applicants, only: [:new, :create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

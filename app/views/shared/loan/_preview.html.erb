@@ -3,7 +3,7 @@
     <div class="card-header">
       <ul class="nav nav-tabs card-header-tabs" role="tablist">
         <li class="nav-item">
-          <a class="nav-link <%= " active" if(controller_name == 'loan') %> " id="loan-registration-nav"
+          <a class="nav-link <%= " active" if(controller_name == 'loans') %> " id="loan-registration-nav"
             data-toggle="list" href="#loan-registration-prev" role="tab" aria-controls="home">Cadastro de solicitação de
             crédito</a>
         </li>
@@ -16,7 +16,7 @@
     </div>
     <div class="card-body">
       <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade <%= "show active" if(controller_name == 'loan') %>" id="loan-registration-prev"
+        <div class="tab-pane fade <%= "show active" if(controller_name == 'loans') %>" id="loan-registration-prev"
           role="tabpanel" aria-labelledby="loan-registration-nav">
           <div>
             <span>Valor solicitado </span>
@@ -37,11 +37,11 @@
           <div>
             <span>Valor parcelado mensal </span>
             <% if @loan.amount && @loan.installments%>
-              <p>R$<span id="installments-monthly" class="ml-2">
+              <p>R$<span class="ml-2">
               <%= loan_calculation(@loan) %>
               </span></p>  
             <% else %>
-              <p>R$<span id="installments-monthly" class="ml-2">00</span></p>
+              <p>R$<span id="installments-monthly-prev" class="ml-2">00</span></p>
             <% end %>
           </div>
           <%if controller_name == 'loan_applicants' %>

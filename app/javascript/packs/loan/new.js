@@ -13,6 +13,9 @@ $( document ).on('turbolinks:load', function() {
     loan_calculation($('#amount').val(),$('#monthly_rate').val(),$(this).val())
     $('#installments-prev').text($(this).val())
   })
+  
+  $('#installments').trigger('change')
+
   $('#accept_terms').on('change',function(){
     enable_next_step()
   });
@@ -26,11 +29,12 @@ $( document ).on('turbolinks:load', function() {
 })
 
 function loan_calculation(amount,monthly_rate,installments){
+  console.log(amount,monthly_rate,installments)
   mr = parseFloat(monthly_rate)/100
   prev = ((1.0 + mr) ** installments)
   result = amount * (( prev * mr)/( prev - 1))
   if(result){
-    $('#installments-monthly').text(result.toFixed(3))
+    $('#installments-monthly-prev').text(result.toFixed(3))
   }
 }
 
