@@ -2,13 +2,14 @@ class LoanApplicantsController < AuthenticatedController
   def new
     @loan = Loan.new(loan_params)
     @loan_applicant = LoanApplicant.new()
+    @loan_applicant.loans.build
     unless @loan.amount && @loan.installments && @loan.accept_terms
       redirect_to new_loan_path
     end
   end
 
   def create
-    @loan_applicant = LoanApplicant.new(loan_applicant_params)
+    @loan_applicant = LoanApplicant.new()
     respond_to do |format|
       if @loan_applicant.save
         format.html { redirect_to painel_index_path, notice: 'Loan was successfully created.' }
@@ -23,7 +24,13 @@ class LoanApplicantsController < AuthenticatedController
     params.require(:loan_applicant).permit(
       :company_name,
       :cnpj,
-      phones: []
+      phones: [],
+      loans_attributes:[
+        :id,
+        :amount,
+        :installments,
+        :accept_terms
+      ],
     )
   end
 
