@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :loan_applicant do
-    company_name { "MyString" }
-    cnpj { "MyString" }
-    phones { ['21999999999'] }
+    company_name { Faker::Company.name }
+    cnpj { Faker::Company.brazilian_company_number }
+    phones { [ Faker::PhoneNumber.phone_number] }
   end
 end

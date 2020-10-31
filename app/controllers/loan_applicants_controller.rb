@@ -9,7 +9,7 @@ class LoanApplicantsController < AuthenticatedController
   end
 
   def create
-    @loan_applicant = LoanApplicant.new()
+    @loan_applicant = LoanApplicant.new(loan_applicant_params)
     respond_to do |format|
       if @loan_applicant.save
         format.html { redirect_to painel_index_path, notice: 'Loan was successfully created.' }

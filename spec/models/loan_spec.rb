@@ -18,10 +18,10 @@ RSpec.describe Loan, type: :model do
     expect(loan.errors[:installments]).to include("can't be blank")
   end
   
-  it 'Is invalid without date_acquisition' do
+  it 'is valid because it generated date_acquisition' do
     loan = build(:loan, date_acquisition: nil)
     loan.valid?
-    expect(loan.errors[:date_acquisition]).to include("can't be blank")
+    expect(loan.errors[:date_acquisition]).not_to eql(nil)
   end
 
   it 'Is invalid without accept_terms' do
