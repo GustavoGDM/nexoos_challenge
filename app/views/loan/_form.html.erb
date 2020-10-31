@@ -1,11 +1,11 @@
 <div class="loan-form">
-  <%= form_with url: "/", method: :get do |f| %>
+  <%= form_with do |f| %>
     <label for="">Valor do Emprestimo</label>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text">R$</span>
       </div>
-      <%= f.number_field :value, class:"form-control" %>
+      <%= f.number_field :amount, class:"form-control" %>
       <div class="input-group-append">
         <span class="input-group-text">.00</span>
       </div>
@@ -19,11 +19,11 @@
       <%= f.select :installments,(1..60).map{|n| n}, {}, {class:"custom-select"}%>
     </div>
     <div class="form-group">
-      <%= f.check_box :accept_terms, {}, {class:"form-check-input"}%>
+      <%= f.check_box :accept_terms %>
       <label class="form-check-label" for="accept_terms">
         Aceito os termos da solicitação de credito
       </label>
     </div>
-    <input disabled type="submit" class="btn btn-primary" value="Proxima etapa"/>
-  <%end%>
+    <%end%>
+    <%= link_to 'Proxima etapa', new_loan_applicant_path, class:"btn btn-primary disabled", id:"next-step" %>
 </div>

@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 2020_10_30_014950) do
   create_table "loan_applicants", force: :cascade do |t|
     t.string "company_name"
     t.string "cnpj"
-    t.string "phones", array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "phones"
   end
 
   create_table "loans", force: :cascade do |t|

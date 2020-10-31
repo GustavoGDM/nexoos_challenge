@@ -8,11 +8,14 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("bootstrap")
+require("jquery")
+require("@nathanvda/cocoon")
 
 // LOAN
 require("packs/loan/new")
 
-
+// LOAN_APPLICANT
+require("packs/loan_applicant/new")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

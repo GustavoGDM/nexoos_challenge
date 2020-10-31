@@ -1,0 +1,69 @@
+<div class="loan-preview">
+  <div class="card">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link <%= " active" if(controller_name == 'loan') %> " id="loan-registration-nav"
+            data-toggle="list" href="#loan-registration-prev" role="tab" aria-controls="home">Cadastro de solicitação de
+            crédito</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <%= (controller_name == 'loan_applicants')? 'active': 'disabled' %>" id="loan-applicant-nav"
+            data-toggle="list" href="#loan-applicant-prev" role="tab" aria-controls="profile">Cadastro de
+            solicitante</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade <%= "show active" if(controller_name == 'loan') %>" id="loan-registration-prev"
+          role="tabpanel" aria-labelledby="loan-registration-nav">
+          <div>
+            <span>Valor solicitado </span>
+            <p>R$<span id="amount-prev" class="ml-2">
+                <%= @loan.amount ? "#{@loan.amount}" : '00' %>
+              </span></p>
+          </div>
+          <div>
+            <span>Numero de parcelas </span>
+            <p><span id="installments-prev">
+                <%= @loan.installments ? "#{@loan.installments}" : '00' %>
+              </span></p>
+          </div>
+          <div>
+            <span>Taxa <small> %a.m.</small> </span>
+            <p><span id="installments-prev"> <%= "#{@loan.monthly_rate*100}"%>% </span></p>
+          </div>
+          <div>
+            <span>Valor parcelado mensal </span>
+            <% if @loan.amount && @loan.installments%>
+              <p>R$<span id="installments-monthly" class="ml-2">
+              <%= loan_calculation(@loan) %>
+              </span></p>  
+            <% else %>
+              <p>R$<span id="installments-monthly" class="ml-2">00</span></p>
+            <% end %>
+          </div>
+          <%if controller_name == 'loan_applicants' %>
+          <div class="form-group">
+            <%= check_box_tag 'accept_terms', '', @loan.accept_terms, disabled: true %>
+            <label class="form-check-label" for="accept_terms">
+              Aceito os termos da solicitação de credito
+            </label>
+          </div>
+          <% end%>
+        </div>
+        <div class="tab-pane fade <%= "show active" if(controller_name == 'loan_applicants') %>" id="loan-applicant-prev" role="tabpanel" aria-labelledby="loan-applicant-nav">
+          <div>
+            <span>Razão social </span>
+            <p><span id="company-name-prev" class="ml-2"></span></p>
+          </div>
+          <div>
+            <span>CNPJ </span>
+            <p><span id="cnpj-prev" class="ml-2"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
