@@ -23,7 +23,7 @@ class LoanApplicantsController < AuthenticatedController
     params.require(:loan_applicant).permit(
       :company_name,
       :cnpj,
-      :phones,
+      phones: []
     )
   end
 

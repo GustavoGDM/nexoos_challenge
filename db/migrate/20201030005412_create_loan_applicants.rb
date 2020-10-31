@@ -3,7 +3,7 @@ class CreateLoanApplicants < ActiveRecord::Migration[6.0]
     create_table :loan_applicants do |t|
       t.string :company_name
       t.string :cnpj
-      t.string :phones, array: true
+      t.string :phones, array: true, default: []
 
       t.timestamps
     end
