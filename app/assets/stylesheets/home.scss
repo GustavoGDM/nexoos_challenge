@@ -1,0 +1,59 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+#home {
+  display: flex;
+  flex-flow: column;
+  box-shadow: var(--shadow);
+  a {
+    border-radius: 15px;
+  }
+  .cont-value,
+  .cont-welc {
+    flex: 1;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    min-height: 440px;
+    padding: 10px;
+  }
+  .welc-img,
+  .value-img {
+    flex: 1;
+    min-height: 372px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    p {
+      text-indent: 1em;
+    }
+  }
+  .welc-text,
+  .value-text {
+    flex: 1;
+    padding: 10px;
+  }
+  .cont-welc {
+    background-color: var(--dark-blue);
+    .welc-img {
+      background-image: url("home/Finance-rafiki.svg");
+    }
+    .welc-text {
+      color: var(--white);
+      a {
+        color: var(--dark);
+      }
+    }
+  }
+  .cont-value {
+    background-color: var(--white);
+    .value-img {
+      background-image: url("home/Wallet-rafiki");
+    }
+    .value-text {
+      a {
+        color: var(--white);
+      }
+    }
+  }
+}

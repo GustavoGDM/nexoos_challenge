@@ -7,10 +7,19 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-
-require("jquery3")
-require("popper")
 require("bootstrap")
+require("jquery")
+require("@nathanvda/cocoon")
+
+// LOAN
+require("packs/loan/form")
+
+// LOAN_APPLICANT
+require("packs/loan_applicant/form")
+
+// SIMULATE_LOAN
+require("packs/simulate_loan/index")
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

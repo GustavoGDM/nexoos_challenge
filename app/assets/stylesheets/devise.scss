@@ -1,0 +1,31 @@
+.devise-cont{
+  display: flex;
+  flex-flow: row;
+  height: 100%;
+
+.devise-img {
+  display: none;
+  flex: 1;
+  background-image: url('devise/Credit card-rafiki.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: auto;
+}
+.devise-form {
+  flex: 1;
+  padding-top: 25px;
+  padding-left: 25px;
+  form {
+    padding: 35px;
+    display: flex;
+    flex-flow: column;
+  }
+}
+
+@media screen and (min-width: 45rem) {
+  .devise-img {
+    display: block;
+  }
+}
+}

@@ -1,0 +1,6 @@
+<div id="loan-applicant" class="cont p-3">
+  <h3>Nova solicitação de crédito</h3>
+  <h6 class="pl-3 border-bottom"><i><b>Etapa</b> 2/2 </i></h6>
+  <%= render '/shared/loan/preview', loan: (loan ||= @loan)  %>
+  <%= render 'form', locals: {loan_applicant:(loan_applicant ||= @loan_applicant),loan: (loan ||= @loan)} %>
+</div>

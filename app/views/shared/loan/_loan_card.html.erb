@@ -1,0 +1,36 @@
+<a href="<%= loan_path(loan.id) %>">
+  <div class="p-1">
+    <div class="card">
+      <div class="d-flex flex-wrap">
+        <div class="p-2">
+          <span>Id </span>
+          <p><span><%="#{loan.id}" %></span></p>
+        </div>
+        <div class="p-2">
+          <span>Valor solicitado </span>
+          <p>R$<span id="amount-prev" class="ml-2"><%= loan.amount ? "#{formated_loan_amount(loan)}" : '00' %></span></p>
+        </div>
+        <div class="p-2">
+          <span>Numero de parcelas </span>
+          <p><span id="installments-prev"><%= loan.installments ? "#{loan.installments}" : '00' %></span></p>
+        </div>
+        <div class="p-2">
+          <span>Data de aquisição </span>
+          <p><span id="installments-prev"><%= loan.date_acquisition.strftime("%d/%m/%Y") %></span></p>
+        </div>
+        <div class="p-2">
+          <span>Taxa <small> %a.m.</small> </span>
+          <p><span id="installments-prev"> <%= "#{loan.monthly_rate*100}"%>% </span></p>
+        </div>
+        <div class="p-2">
+          <span>Valor parcelado mensal </span>
+            <p>R$<span class="ml-2"><%= loan_calculation(loan) %></span></p>  
+        </div>
+        <div class="p-2">
+          <span> Numero de solicitantes </span>
+          <p><span><%= loan.loan_applicants.count %></span></p>  
+        </div>
+      </div>
+    </div>
+  </div>
+</a>

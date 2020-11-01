@@ -1,0 +1,21 @@
+<div class="p-2">
+  <%= link_to 'Painel', painel_index_path %>
+</div>
+
+<div class="dropdown p-2 border-left">
+  <a class=" dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Solicitações de Crédito
+  </a>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <%= link_to 'Nova solicitação ', new_loan_path ,class:"dropdown-item"%>
+    <%= link_to 'Todas Solicitações', loans_path ,class:"dropdown-item"%>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
+<div class="dropdown p-2 border-left">
+  <%= link_to 'Simular crédito', simulate_loan_index_path %>
+</div>
+<div class="p-2 border-left">
+  <%= link_to 'Sair', destroy_user_session_path , method: :delete%>
+</div>

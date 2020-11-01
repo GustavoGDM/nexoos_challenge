@@ -1,0 +1,9 @@
+<header id="header" class="p-2">
+  <% if  current_user  %>
+    <%= render '/shared/header/authenticated' %>
+  <% elsif  devise_controller? %>
+    <%= render '/shared/header/devise' %>
+  <% elsif  "#{controller_name}" == 'home' %>
+    <%= render '/shared/header/home' %>
+  <%end%>
+</header>

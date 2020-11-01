@@ -1,0 +1,85 @@
+<div class="loan-preview">
+  <div class="card">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link <%= " active" if(controller_name == 'loans' || controller_name == 'simulate_loan') %> " id="loan-registration-nav"
+            data-toggle="list" href="#loan-registration-prev" role="tab" aria-controls="home">Cadastro de solicitação de
+            crédito</a>
+        </li>
+        <% if controller_name != 'simulate_loan'%>
+          <li class="nav-item">
+            <a class="nav-link <%= (controller_name == 'loan_applicants')? 'active': 'disabled' %>" id="loan-applicant-nav"
+              data-toggle="list" href="#loan-applicant-prev" role="tab" aria-controls="profile">Cadastro de
+              solicitante</a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="card-body">
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade <%= "show active" if(controller_name == 'loans' || controller_name == 'simulate_loan') %>" id="loan-registration-prev"
+          role="tabpanel" aria-labelledby="loan-registration-nav">
+          <div>
+            <span>Valor solicitado </span>
+            <p>R$<span id="amount-prev" class="ml-2">
+                <%= loan.amount ? "#{formated_loan_amount(loan)}" : '00' %>
+              </span></p>
+          </div>
+          <div>
+            <span>Numero de parcelas </span>
+            <p><span id="installments-prev">
+                <%= loan.installments ? "#{loan.installments}" : '00' %>
+              </span></p>
+          </div>
+          <div>
+            <span>Taxa <small> %a.m.</small> </span>
+            <p><span id="installments-prev"> <%= "#{loan.monthly_rate*100}"%>% </span></p>
+          </div>
+          <div>
+            <span>Valor parcelado mensal </span>
+            <% if loan.amount && loan.installments%>
+              <p>R$<span class="ml-2">
+              <%= loan_calculation(loan) %>
+              </span></p>  
+            <% else %>
+              <p>R$<span id="installments-monthly-prev" class="ml-2">00</span></p>
+            <% end %>
+          </div>
+          <%if controller_name == 'loan_applicants' || controller_name == 'simulate_loan' %>
+            <div>
+              <span> Numero de solicitantes </span>
+              <% if loan.loan_applicants.count > 0 %>
+                <p><span>
+                <%= loan.loan_applicants.count %>
+                </span></p>  
+              <% else %>
+                <p><span id="number-of-applicants-prev">00</span></p>
+              <% end %>
+            </div>
+             <div>
+              <span> Valor da parcela por solicitante </span>
+              <% if loan.loan_applicants.count > 0 %>
+                <p>R$<span class="ml-2">
+                <%= loan_calculation_per_applicant(loan) %>
+                </span></p>  
+              <% else %>
+                <p>R$<span id="installments-per-applicants-prev" class="ml-2">00</span></p>
+              <% end %>
+            </div>
+          <% end%>
+        </div>
+        <div class="tab-pane fade <%= "show active" if(controller_name == 'loan_applicants') %>" id="loan-applicant-prev" role="tabpanel" aria-labelledby="loan-applicant-nav">
+          <div>
+            <span>Razão social </span>
+            <p><span id="company-name-prev" class="ml-2"></span></p>
+          </div>
+          <div>
+            <span>CNPJ </span>
+            <p><span id="cnpj-prev" class="ml-2"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

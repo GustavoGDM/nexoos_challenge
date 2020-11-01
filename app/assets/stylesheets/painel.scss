@@ -1,0 +1,46 @@
+// Place all the styles related to the painel controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.cont-navig{
+  display: flex;
+  flex-flow: row;
+  flex: 1;
+  text-align: center;
+  a{
+    text-decoration: none;
+    color: var(--dark-blue); 
+  }
+  span{
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+  }
+  img{
+    width: auto;
+    max-height: 250px;
+  }
+  .bnt-new-loan,.bnt-new-simul{
+    padding: 20px;
+    flex: 1;
+    transition: 0.3s;
+    &:hover{
+      a {
+        color: var(--white);
+      }
+      background-color: var(--dark-blue); 
+    }
+  }
+}
+
+#loans-list{
+  height: 350px;
+  a {
+    text-decoration: none;
+  }
+  .card{
+    &:hover{
+      color: var(--white);
+      background-color: var(--dark-blue); 
+    }
+  }
+}

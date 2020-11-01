@@ -1,0 +1,28 @@
+<div class="cont">
+  <div class="cont-navig">
+    <div class="bnt-new-loan">
+      <a href="<%= new_loan_path %>">
+          <%= image_tag 'painel/Bitcoin P2P-rafiki.svg' %>
+          <span> Solicitação de Crédito </span>
+      </a>
+    </div>
+    <div class="bnt-new-simul">
+      <a href="<%= simulate_loan_index_path %>">
+        <div>
+          <div>
+            <%= image_tag 'painel/Analytics-pana.svg' %>
+          </div>
+          <span> Simular Crédito </span>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="loans-cont p-3">
+    <h5>Ultimas Solicitações de crédito</h5>
+    <div class="scroll-list" id='loans-list'>
+      <% @loans.each do |loan|%>
+        <%= render '/shared/loan/loan_card', loan: loan %>
+      <% end %>
+    </div>
+  </div>
+</div>
