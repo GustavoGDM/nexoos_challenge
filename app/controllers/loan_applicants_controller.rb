@@ -18,6 +18,7 @@ class LoanApplicantsController < AuthenticatedController
     @loan_applicant.phones = @loan_applicant.phones.reject{|p| p.empty? }
     respond_to do |format|
       if @loan_applicant.save
+        generate_first_loan_installmenent
         if params[:new_loan_applicant] == 'true'
           @loan_applicant = LoanApplicant.new(loan: @loan_applicant.loan)
           format.html { render :new, locals: {loan_applicant: @loan_applicant, loan: @loan_applicant.loan} }
@@ -55,5 +56,11 @@ class LoanApplicantsController < AuthenticatedController
 
   def loan_params
     params.permit(:amount,:installments)
+  end
+
+  def generate_first_loan_installmenent
+    loan = @loan_applicant.loan
+    value = helpers.loan_calculation_per_applicant(loan)
+    LoanInstallment.create(value: value, due_date: (loan.date_acquisition + 1.month), installment_number: 1, loan: loan, loan_applicant: @loan_applicant)
   end
 end
