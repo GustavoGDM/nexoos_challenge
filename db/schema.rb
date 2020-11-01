@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2020_11_01_033613) do
     t.datetime "date_acquisition"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "accept_terms"
   end
 
   create_table "users", force: :cascade do |t|

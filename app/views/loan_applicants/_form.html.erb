@@ -4,7 +4,6 @@
         <%= loan.hidden_field :id,  value: locals[:loan].id %>
         <%= loan.hidden_field :amount,  value: locals[:loan].amount %>
         <%= loan.hidden_field :installments, value: locals[:loan].installments %>
-        <%= loan.hidden_field :accept_terms, value: locals[:loan].accept_terms %>
     <% end %>
     <div class="form-group">
       <label for="">Razão social </label>
@@ -39,7 +38,8 @@
       </div>
     </div>
     <div class="form-group ">
-      <%= f.submit "Conrfirmar solicitação de crédito", class:"btn btn-primary disabled" %>
+      <%= f.button  "Adicionar outro solicitante" , name:"new_loan_applicant", value:"true", class:"btn btn-success"%>
+      <%= f.submit "Confirmar solicitação de crédito", class:"btn btn-primary" %>
     </div>
   <%end%>
 </div>

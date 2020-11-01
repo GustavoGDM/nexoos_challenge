@@ -16,14 +16,10 @@ $( document ).on('turbolinks:load', function() {
   
   $('#installments').trigger('change')
 
-  $('#accept_terms').on('change',function(){
-    enable_next_step()
-  });
   $('#next-step').on('click',function(e){
     amount = parseFloat($('#amount').val())
     installments = $('#installments').val()
-    accept_terms = $("#accept_terms").prop('checked')
-    link = $(this).prop('href') + `?amount=${amount}&installments=${installments}&accept_terms=${accept_terms}`
+    link = $(this).prop('href') + `?amount=${amount}&installments=${installments}`
     $(this).prop('href',link)
   })
 })
@@ -38,7 +34,7 @@ function loan_calculation(amount,monthly_rate,installments){
 }
 
 function enable_next_step(){
-  if($("#accept_terms").prop('checked') && parseFloat($('#amount').val()) > 0 ){
+  if(parseFloat($('#amount').val()) > 0 ){
     $("#next-step").removeClass('disabled')
   }else{
     $("#next-step").addClass('disabled')

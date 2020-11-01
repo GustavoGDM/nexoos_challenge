@@ -45,12 +45,6 @@
             <% end %>
           </div>
           <%if controller_name == 'loan_applicants' %>
-          <div class="form-group">
-            <%= check_box_tag 'accept_terms', '', loan.accept_terms, disabled: true %>
-            <label class="form-check-label" for="accept_terms">
-              Aceito os termos da solicitação de credito
-            </label>
-          </div>
           <% end%>
         </div>
         <div class="tab-pane fade <%= "show active" if(controller_name == 'loan_applicants') %>" id="loan-applicant-prev" role="tabpanel" aria-labelledby="loan-applicant-nav">

@@ -18,12 +18,6 @@
       <label for="">Taxa</label>
       <%= f.select :installments,(1..60).map{|n| n}, {}, {class:"custom-select"}%>
     </div>
-    <div class="form-group">
-      <%= f.check_box :accept_terms %>
-      <label class="form-check-label" for="accept_terms">
-        Aceito os termos da solicitação de credito
-      </label>
-    </div>
-    <%end%>
-    <%= link_to 'Proxima etapa', new_loan_applicant_path, class:"btn btn-primary disabled", id:"next-step" %>
+  <%end%>
+  <%= link_to 'Proxima etapa', new_loan_applicant_path, class:"btn btn-primary disabled", id:"next-step" %>
 </div>
