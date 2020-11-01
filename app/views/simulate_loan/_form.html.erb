@@ -1,4 +1,4 @@
-<div class="loan-form">
+<div class="loan-simulate-form">
   <%= form_with do |f| %>
     <label for="">Valor do Emprestimo</label>
     <div class="input-group mb-3">
@@ -18,6 +18,9 @@
       <label for="">Numero de parcelas</label>
       <%= f.select :installments,(1..60).map{|n| n}, {}, {class:"custom-select"}%>
     </div>
+    <div class="form-group">
+      <label for="">Numero de solicitantes</label>
+      <%= f.select :applicants,(1..200).map{|n| n}, {}, {class:"custom-select"}%>
+    </div>
   <%end%>
-  <%= link_to 'Proxima etapa', new_loan_applicant_path, class:"btn btn-primary disabled", id:"next-step" %>
 </div>

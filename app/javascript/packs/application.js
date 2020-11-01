@@ -17,6 +17,9 @@ require("packs/loan/form")
 // LOAN_APPLICANT
 require("packs/loan_applicant/form")
 
+// SIMULATE_LOAN
+require("packs/simulate_loan/index")
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

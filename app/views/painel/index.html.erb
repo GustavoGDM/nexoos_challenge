@@ -3,20 +3,21 @@
     <div class="bnt-new-loan">
       <a href="<%= new_loan_path %>">
           <%= image_tag 'painel/Bitcoin P2P-rafiki.svg' %>
-          <span> Contratar Emprestimo </span>
+          <span> Solicitação de Crédito </span>
       </a>
     </div>
     <div class="bnt-new-simul">
-      <a href="<%=  %>">
+      <a href="<%= simulate_loan_index_path %>">
         <div>
           <div>
             <%= image_tag 'painel/Analytics-pana.svg' %>
           </div>
-          <span> Simular Emprestimo </span>
+          <span> Simular Crédito </span>
         </div>
       </a>
     </div>
   </div>
-  <div class="loans-cont"></div>
-  <div class="loans-simul-cont"></div>
+  <div class="loans-cont">
+    <%= render 'form', @loans %>
+  </div>
 </div>

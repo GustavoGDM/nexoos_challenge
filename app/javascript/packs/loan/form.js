@@ -1,8 +1,9 @@
 $( document ).on('turbolinks:load', function() {
   $('#amount').on('keyup',function() {
     loan_calculation($(this).val(),$('#monthly_rate').val(),$('#installments').val())
-    if (parseFloat($(this).val())){
-      $('#amount-prev').text(parseFloat($(this).val()))
+    var value = parseFloat($(this).val())
+    if (value){
+      $('#amount-prev').text(`${value.toFixed(3)}`)
     }else{
       $(this).val('')
       $('#amount-prev').text('00')
