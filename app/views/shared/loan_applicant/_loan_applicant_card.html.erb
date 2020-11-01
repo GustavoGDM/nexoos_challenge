@@ -1,0 +1,97 @@
+<div class="loan-preview">
+  <div class="card">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="loan-applicant-nav-<%="#{loan_applicant.id}"%>"
+            data-toggle="list" href="#loan-applicant-prev-<%="#{loan_applicant.id}"%>" role="tab" aria-controls="applicant-<%="#{loan_applicant.id}" %>"> Solicitante</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " id="addresses-nav-<%="#{loan_applicant.id}"%>"
+            data-toggle="list" href="#addresses-prev-<%="#{loan_applicant.id}"%>" role="tab" aria-controls="addresses-<%="#{loan_applicant.id}" %>">Endereços</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " id="loan-installments-nav-<%="#{loan_applicant.id}"%>"
+            data-toggle="list" href="#loan-installments-prev-<%="#{loan_applicant.id}"%>" role="tab" aria-controls="installments-<%="#{loan_applicant.id}" %>">Parcelas</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="loan-applicant-prev-<%="#{loan_applicant.id}"%>"
+          role="tabpanel" aria-labelledby="loan-applicant-nav-<%="#{loan_applicant.id}"%>">
+          <div class="d-flex flex-wrap">
+            <div class="p-2">
+              <span>Id </span>
+              <p><span><%="#{loan_applicant.id}" %></span></p>
+            </div>
+            <div class="p-2">
+              <span>Razão social </span>
+              <p><span class="ml-2"><%="#{loan_applicant.company_name}" %></span></p>
+            </div>
+            <div class="p-2">
+              <span>CNPJ </span>
+              <p><span class="ml-2"><%="#{loan_applicant.cnpj}" %></span></p>
+            </div>
+            <div class="p-2">
+              <span>Telefones </span>
+              <p><span class="ml-2"><%="#{loan_applicant.phones.join(', ')}" %></span></p>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="addresses-prev-<%="#{loan_applicant.id}"%>" role="tabpanel" aria-labelledby="addresses-nav-<%="#{loan_applicant.id}"%>">
+          <% loan_applicant.addresses.each do |address| %>
+            <div class="p-1">
+              <div class="border">
+                <div class="d-flex flex-wrap">
+                  <div class="p-2">
+                    <span>Cep </span>
+                    <p><span><%="#{address.zip_code}" %></span></p>
+                  </div>
+                  <div class="p-2">
+                    <span>Estado </span>
+                    <p><span><%="#{address.state}" %></span></p>
+                  </div>
+                  <div class="p-2">
+                    <span>Cidade </span>
+                    <p><span><%="#{address.city}" %></span></p>
+                  </div>
+                  <div class="p-2">
+                    <span>Rua </span>
+                    <p><span><%="#{address.street}" %></span></p>
+                  </div>
+                  <div class="p-2">
+                    <span>Número </span>
+                    <p><span><%= (address.number.empty?) ? "s/n" : "#{address.number}"  %></span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="tab-pane fade" id="loan-installments-prev-<%="#{loan_applicant.id}"%>" role="tabpanel" aria-labelledby="loan-installments-nav-<%="#{loan_applicant.id}"%>" >
+          <% loan_applicant.loan_installments.each do |loan_installment| %>
+            <div class="p-1">
+              <div class="border">
+                <div class="d-flex flex-wrap">
+                  <div class="p-2">
+                    <span>Numero da parcela </span>
+                    <p><span><%="#{loan_installment.installment_number}" %></span></p>
+                  </div>
+                  <div class="p-2">
+                    <span>Valor da parcela </span>
+                    <p>R$<span><%="#{loan_installment.value}" %></span></p>
+                  </div>
+                  <div class="p-2">
+                    <span>Data de entrega </span>
+                    <p><span><%="#{loan_installment.due_date.strftime("%d/%m/%Y")}"%></span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -15,6 +15,6 @@ $( document ).on('turbolinks:load', function( ) {
 })
 
 function installment_per_applicant(){
-  result = $('#amount').val()/$('#installments').val()
+  result = $('#amount').val()/$('#applicants').val()
   $('#installments-per-applicants-prev').text(result.toFixed(3)) 
 }

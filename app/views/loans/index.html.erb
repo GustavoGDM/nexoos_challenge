@@ -1,6 +1,6 @@
 <div class="cont p-3" id="loan-show">
   <h2> Solicitações de crédito</h2>
   <% @loans.each do |loan|%>
-    <%= render '/shared/loan/loans_list', loan: loan %>
+    <%= render '/shared/loan/loan_card', loan: loan %>
   <% end %>
 </div>

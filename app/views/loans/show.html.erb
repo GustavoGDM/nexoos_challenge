@@ -1,0 +1,11 @@
+<div id="loan" class="cont p-3">
+  <h3>Solicitação de crédito</h3>
+    <%= render '/shared/loan/loan_card', loan: @loan %>
+  <h5>Solicitacitantes</h5>
+
+  <% @loan.loan_applicants.each do |la|%>
+    <div class="p-1">
+      <%= render '/shared/loan_applicant/loan_applicant_card', loan_applicant: la %>
+    </div>
+  <% end %>
+</div>
