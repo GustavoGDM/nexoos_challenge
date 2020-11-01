@@ -24,9 +24,10 @@ RSpec.describe LoanApplicant, type: :model do
     expect(loan_applicant.errors[:phones]).to include("can't be blank")
   end
 
-  it "Has many loans" do
-    association = LoanApplicant.reflect_on_association(:loans).macro
-    expect(association).to eq(:has_many)
+  it 'Is invalid without loan' do
+    loan_applicant = build(:loan_applicant, loan: nil)
+    loan_applicant.valid?
+    expect(loan_applicant.errors[:loan]).to include("can't be blank")
   end
 
   it "Has many addresses" do

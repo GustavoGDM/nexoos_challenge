@@ -30,15 +30,14 @@ RSpec.describe Loan, type: :model do
     expect(loan.errors[:accept_terms]).to include("can't be blank")
   end
 
-  it 'Is invalid without loan_applicant' do
-    loan = build(:loan, loan_applicant: nil)
-    loan.valid?
-    expect(loan.errors[:loan_applicant]).to include("can't be blank")
-  end
-
   it 'Is invalid with accept_terms false' do
     loan = build(:loan, accept_terms: false)
     loan.valid?
     expect(loan.errors[:accept_terms]).to include("must be accepted")
+  end
+
+  it "Has many loans" do
+    association = Loan.reflect_on_association(:loan_applicants).macro
+    expect(association).to eq(:has_many)
   end
 end

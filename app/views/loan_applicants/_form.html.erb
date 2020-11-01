@@ -1,6 +1,6 @@
 <div class="loan-applicant-form">
   <%= form_with(model: locals[:loan_applicant], local: true) do |f| %>
-    <%= f.fields_for :loans do |loan| %>
+    <%= f.fields_for :loan do |loan| %>
         <%= loan.hidden_field :id,  value: locals[:loan].id %>
         <%= loan.hidden_field :amount,  value: locals[:loan].amount %>
         <%= loan.hidden_field :installments, value: locals[:loan].installments %>

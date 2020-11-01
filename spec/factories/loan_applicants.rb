@@ -3,5 +3,6 @@ FactoryBot.define do
     company_name { Faker::Company.name }
     cnpj { Faker::Company.brazilian_company_number }
     phones { [ Faker::PhoneNumber.phone_number] }
+    loan
   end
 end
