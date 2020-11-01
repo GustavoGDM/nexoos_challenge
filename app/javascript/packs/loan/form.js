@@ -29,7 +29,6 @@ $( document ).on('turbolinks:load', function() {
 })
 
 function loan_calculation(amount,monthly_rate,installments){
-  console.log(amount,monthly_rate,installments)
   mr = parseFloat(monthly_rate)/100
   prev = ((1.0 + mr) ** installments)
   result = amount * (( prev * mr)/( prev - 1))

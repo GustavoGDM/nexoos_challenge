@@ -1,10 +1,10 @@
 <div class="loan-applicant-form">
-  <%= form_with(model: @loan_applicant, local: true) do |f| %>
+  <%= form_with(model: locals[:loan_applicant], local: true) do |f| %>
     <%= f.fields_for :loans do |loan| %>
-        <%= loan.hidden_field :id,  value: @loan.id %>
-        <%= loan.hidden_field :amount,  value:@loan.amount %>
-        <%= loan.hidden_field :installments, value: @loan.installments %>
-        <%= loan.hidden_field :accept_terms, value: @loan.accept_terms %>
+        <%= loan.hidden_field :id,  value: locals[:loan].id %>
+        <%= loan.hidden_field :amount,  value: locals[:loan].amount %>
+        <%= loan.hidden_field :installments, value: locals[:loan].installments %>
+        <%= loan.hidden_field :accept_terms, value: locals[:loan].accept_terms %>
     <% end %>
     <div class="form-group">
       <label for="">Razão social </label>
@@ -14,7 +14,7 @@
       <label for="">CNPJ </label>
       <%= f.text_field :cnpj, class:"form-control" %>
     </div>
-    <div class="card">
+    <div class="card form-group">
       <label class="pl-3 pt-3">Telefone </label>
       <div class="card-body" id="phones-list">
         <div class="input-group mb-3" >
@@ -25,7 +25,20 @@
         </div>
       </div>
     </div>
-    <div class="pt-3">
+    <div class="card form-group">
+      <label class="pl-3 pt-3">Endereços </label>
+      <div class="card-body" id="addresses-list">
+         <div id="addresses">
+          <%= f.fields_for :addresses do |addresses| %>
+            <%= render 'address_fields', f: addresses %> 
+          <% end %>
+          <div class="links pt-3">
+            <%= link_to_add_association 'Adicionar novo endereço', f, :addresses , class:"btn btn-outline-success", id:"add-addresses"%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group ">
       <%= f.submit "Conrfirmar solicitação de crédito", class:"btn btn-primary disabled" %>
     </div>
   <%end%>

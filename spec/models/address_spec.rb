@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Address, type: :model do
-  it 'Is valid with zip_code, state, city, street,number' do
+  it 'Is valid with zip_code, state, city, street' do
     address = create(:address)
     expect(address).to be_valid
   end
@@ -28,12 +28,6 @@ RSpec.describe Address, type: :model do
     address = build(:address, street: nil)
     address.valid?
     expect(address.errors[:street]).to include("can't be blank")
-  end
-  
-  it 'Is invalid without number' do
-    address = build(:address, number: nil)
-    address.valid?
-    expect(address.errors[:number]).to include("can't be blank")
   end
 
   it 'Is invalid without loan_applicant' do

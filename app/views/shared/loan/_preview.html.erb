@@ -21,24 +21,24 @@
           <div>
             <span>Valor solicitado </span>
             <p>R$<span id="amount-prev" class="ml-2">
-                <%= @loan.amount ? "#{@loan.amount}" : '00' %>
+                <%= loan.amount ? "#{loan.amount}" : '00' %>
               </span></p>
           </div>
           <div>
             <span>Numero de parcelas </span>
             <p><span id="installments-prev">
-                <%= @loan.installments ? "#{@loan.installments}" : '00' %>
+                <%= loan.installments ? "#{loan.installments}" : '00' %>
               </span></p>
           </div>
           <div>
             <span>Taxa <small> %a.m.</small> </span>
-            <p><span id="installments-prev"> <%= "#{@loan.monthly_rate*100}"%>% </span></p>
+            <p><span id="installments-prev"> <%= "#{loan.monthly_rate*100}"%>% </span></p>
           </div>
           <div>
             <span>Valor parcelado mensal </span>
-            <% if @loan.amount && @loan.installments%>
+            <% if loan.amount && loan.installments%>
               <p>R$<span class="ml-2">
-              <%= loan_calculation(@loan) %>
+              <%= loan_calculation(loan) %>
               </span></p>  
             <% else %>
               <p>R$<span id="installments-monthly-prev" class="ml-2">00</span></p>
@@ -46,7 +46,7 @@
           </div>
           <%if controller_name == 'loan_applicants' %>
           <div class="form-group">
-            <%= check_box_tag 'accept_terms', '', @loan.accept_terms, disabled: true %>
+            <%= check_box_tag 'accept_terms', '', loan.accept_terms, disabled: true %>
             <label class="form-check-label" for="accept_terms">
               Aceito os termos da solicitação de credito
             </label>

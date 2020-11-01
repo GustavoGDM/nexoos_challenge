@@ -12,10 +12,11 @@ require("jquery")
 require("@nathanvda/cocoon")
 
 // LOAN
-require("packs/loan/new")
+require("packs/loan/form")
 
 // LOAN_APPLICANT
-require("packs/loan_applicant/new")
+require("packs/loan_applicant/form")
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

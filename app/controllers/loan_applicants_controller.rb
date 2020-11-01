@@ -9,12 +9,16 @@ class LoanApplicantsController < AuthenticatedController
   end
 
   def create
+    binding.pry
     @loan_applicant = LoanApplicant.new(loan_applicant_params)
+    @loan_applicant.phones = @loan_applicant.phones.reject{|p| p.empty? }
     respond_to do |format|
       if @loan_applicant.save
         format.html { redirect_to painel_index_path, notice: 'Loan was successfully created.' }
       else
-        format.html { redirect_to painel_index_path }
+        @loan_applicant = LoanApplicant.new()
+        @loan_applicant.loans.build
+        format.html { render :new, locals: {loan_applicant:loan_applicant, loan: @loan_applicant.loans.first} }
       end
     end
   end
@@ -31,6 +35,14 @@ class LoanApplicantsController < AuthenticatedController
         :installments,
         :accept_terms
       ],
+      addresses_attributes:[
+        :zip_code,
+        :state,
+        :city,
+        :street,
+        :number,
+        :_destroy
+      ]
     )
   end
 
