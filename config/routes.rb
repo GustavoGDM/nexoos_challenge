@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   resources :index,  only: [:index]
   resources :painel,  only: [:index]
-  resources :loans, only: [:new]
+  resources :loans, only: [:new, :show, :index]
   resources :loan_applicants, only: [:new, :create]
   resources :simulate_loan,  only: [:index]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

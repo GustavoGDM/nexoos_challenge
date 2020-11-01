@@ -7,7 +7,8 @@
     Solicitações de Crédito
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="#">Action</a>
+    <%= link_to 'Nova solicitação ', new_loan_path ,class:"dropdown-item"%>
+    <%= link_to 'Todas Solicitações', loans_path ,class:"dropdown-item"%>
     <a class="dropdown-item" href="#">Another action</a>
     <a class="dropdown-item" href="#">Something else here</a>
   </div>

@@ -31,3 +31,18 @@
     }
   }
 }
+
+#loans-list{
+  max-height: 550px;
+  height: 350px;
+  overflow: auto;
+  a {
+    text-decoration: none;
+  }
+  .card{
+    &:hover{
+      color: var(--white);
+      background-color: var(--dark-blue); 
+    }
+  }
+}

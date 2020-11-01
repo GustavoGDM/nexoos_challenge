@@ -17,7 +17,12 @@
       </a>
     </div>
   </div>
-  <div class="loans-cont">
-    <%= render 'form', @loans %>
+  <div class="loans-cont p-3">
+    <h5>Ultimas Solicitações de crédito</h5>
+    <div class="overflow-auto" id='loans-list'>
+      <% @loans.each do |loan|%>
+        <%= render '/shared/loan/loans_list', loan: loan %>
+      <% end %>
+    </div>
   </div>
 </div>

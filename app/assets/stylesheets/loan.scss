@@ -7,3 +7,14 @@
     padding: 20px 10px 10px 10px;
   }
 }
+#loan-show{
+  a {
+    text-decoration: none;
+  }
+  .card{
+    &:hover{
+      color: var(--white);
+      background-color: var(--dark-blue); 
+    }
+  }
+}
