@@ -5,7 +5,7 @@ var count_phones = 1
 $( document ).on('turbolinks:load', function( ) {
   
   $('#loan_applicant_cnpj').mask('00.000.000/0000-00')
-  // 02952-260
+  
   $('#phone-0').mask('(00)00000-0000')
 
   $('#loan_applicant_company_name').on('keyup',function(){
@@ -31,8 +31,6 @@ $( document ).on('turbolinks:load', function( ) {
     set_behavior_new_address_inputs()
   });
 
-  
-  //CepApi('24445-596',set_address)
 })
 
 function new_cont_phone(){
